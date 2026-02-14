@@ -10,13 +10,16 @@ def extract_features(samples: np.ndarray):
     # REPLACE WITH YOUR CODE
     features = []
     for sample in samples:
+        feature = []
         # sample shape: (100, 3)
-        mag = np.sqrt(np.sum(sample ** 2, axis=1))
-        feature = [
-            mag.mean(),
-            mag.std(),
-            mag.max()
-        ]
+        for i in range(0,100,10):
+            summ=0
+            for j in range(0,10):
+                for k in range(0,3):
+                    summ += sample[j+i][k]
+            feature.append(summ)
+        feature.append(sample.mean())
+        feature.append(sample.std())
         features.append(feature)
     return features
 

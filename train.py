@@ -33,7 +33,7 @@ def main(feature_txt, labels_txt):
     # TRAIN
     model = LogisticRegression(
         solver='lbfgs',
-        multi_class='multinomial',
+        # multi_class='multinomial',
         max_iter=2000,
         random_state=42
     )
